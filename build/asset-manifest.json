@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0b246c76.css",
+    "main.js": "/static/js/main.195f3b63.js",
+    "static/media/banner.mp4": "/static/media/banner.1191f0d9423eba61e8e3.mp4",
+    "static/media/vid2.mp4": "/static/media/vid2.9040f6e9b236631640dc.mp4",
+    "static/media/vid1.mp4": "/static/media/vid1.68f40da7008c6f728952.mp4",
+    "static/media/signup.jpg": "/static/media/signup.e91afb0233ee5cb6a600.jpg",
+    "static/media/aboutus2.jpg": "/static/media/aboutus2.0cf51088f92446dbc0c7.jpg",
+    "static/media/FoundingStory.jpg": "/static/media/FoundingStory.6f7ac97f27bad82070b6.jpg",
+    "static/media/Instructor.jpg": "/static/media/Instructor.7518790f3336c9e8fd73.jpg",
+    "static/media/TimelineImage.jpg": "/static/media/TimelineImage.4eda6631a9df10e6b800.jpg",
+    "static/media/aboutus3.jpg": "/static/media/aboutus3.cf2110bdaf769a05a769.jpg",
+    "static/media/aboutus1.jpg": "/static/media/aboutus1.e99958b629e6d4f3598c.jpg",
+    "static/media/Logo-Full-Light.png": "/static/media/Logo-Full-Light.38113c18cd56f9a0ef72.png",
+    "static/media/rzp_logo.png": "/static/media/rzp_logo.38113c18cd56f9a0ef72.png",
+    "static/media/login.webp": "/static/media/login.dbaf5b767c6dc91f1b63.webp",
+    "static/media/Plan_your_lessons.svg": "/static/media/Plan_your_lessons.f123ccf442a2a364a459a7bbec807045.svg",
+    "static/media/Compare_with_others.svg": "/static/media/Compare_with_others.8e950efa990d53f34b35893a1e03cea1.svg",
+    "static/media/bghome.svg": "/static/media/bghome.de04eae287ff1d29f0b1.svg",
+    "static/media/Know_your_progress.png": "/static/media/Know_your_progress.cf3ea1c51544985430d3.png",
+    "static/media/frame.png": "/static/media/frame.3a238e5f26d676376e1d.png",
+    "static/media/Logo2.svg": "/static/media/Logo2.2d9e85de9e756cda89ffc4582338c939.svg",
+    "static/media/Logo1.svg": "/static/media/Logo1.73daf51e41d665299fc682bc3cb53878.svg",
+    "static/media/Logo3.svg": "/static/media/Logo3.0a56f78fead602f0d54c55ddcdf7e616.svg",
+    "static/media/Logo4.svg": "/static/media/Logo4.5da4c6e0c53e6745b25529891ef82458.svg",
+    "index.html": "/index.html",
+    "main.0b246c76.css.map": "/static/css/main.0b246c76.css.map",
+    "main.195f3b63.js.map": "/static/js/main.195f3b63.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b246c76.css",
+    "static/js/main.195f3b63.js"
+  ]
+}

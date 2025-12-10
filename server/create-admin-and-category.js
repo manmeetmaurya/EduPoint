@@ -30,7 +30,7 @@ const Category = require('./models/Category');
     const adminUser = await User.create({
       firstName: 'Admin',
       lastName: 'User',
-      email: 'admin@shikshamitra.com',
+      email: 'admin@EduPoint.com',
       password: hashedPassword,
       accountType: 'Admin',
       approved: true,

@@ -172,7 +172,7 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made with ❤️ Ayush mishra © 2023 ShikshaMitra</div>
+          <div className="text-center">Made with ❤️ Manmeet Kishore Maurya © 2025 EduPoint</div>
         </div>
       </div>
     </div>

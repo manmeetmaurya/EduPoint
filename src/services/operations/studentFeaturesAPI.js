@@ -65,7 +65,7 @@ export async function BuyCourse(
     console.log("PAYMENT RESPONSE FROM BACKEND............", orderResponse)
 
     // Opening the Razorpay SDK
-    let RAZORPAY_KEY = process.env.REACT_APP_RAZORPAY_KEY_ID || "rzp_test_XyDVUGKfbPnrv1"
+    let RAZORPAY_KEY = process.env.REACT_APP_RAZORPAY_KEY_ID || "rzp_test_RpxWFJYynDA6z4";
     console.log("Razorpay Key:",RAZORPAY_KEY);
     
 
