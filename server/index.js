@@ -25,12 +25,48 @@ database.connect();
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
+// Configure CORS: prefer explicit origins when credentials are enabled
+const allowedOrigins = [
+	process.env.CLIENT_URL || "https://edu-point-chi.vercel.app",
+	process.env.DEPLOYED_CLIENT_URL || "https://edu-point-chi.vercel.app",
+	process.env.BACKEND_URL || "https://edupoint-backend.onrender.com",
+	"http://localhost:3000",
+	"http://localhost:3001",
+]
+
 app.use(
 	cors({
-		origin: "*",
+		origin: function (origin, callback) {
+			// allow requests with no origin (like mobile apps or curl)
+			if (!origin) return callback(null, true)
+			if (allowedOrigins.indexOf(origin) !== -1) {
+				callback(null, true)
+			} else {
+				callback(new Error("Not allowed by CORS"))
+			}
+		},
 		credentials: true,
+		optionsSuccessStatus: 200,
 	})
-);
+)
+
+// Ensure preflight requests are handled for all routes
+app.options("*", cors())
+
+// Fallback middleware to always set CORS headers (helps when errors occur before headers are set)
+app.use((req, res, next) => {
+	const origin = req.headers.origin
+	if (origin && allowedOrigins.indexOf(origin) !== -1) {
+		res.setHeader("Access-Control-Allow-Origin", origin)
+	}
+	res.setHeader("Access-Control-Allow-Credentials", "true")
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
+	)
+	res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS")
+	next()
+})
 app.use(
 	fileUpload({
 		useTempFiles: true,
