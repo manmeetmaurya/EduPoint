@@ -246,10 +246,14 @@ exports.sendotp = async (req, res) => {
       console.log("OTP created and saved:", otpBody._id, "Mail will be sent asynchronously")
       
       // Return success - OTP is saved, mail will be sent in background
-      return res.status(200).json({
+      // Optionally include the OTP in the response for testing when SHOW_OTP is enabled
+      const showOtp = process.env.SHOW_OTP === "true"
+      const resp = {
         success: true,
         message: `OTP Sent Successfully`,
-      })
+      }
+      if (showOtp) resp.otp = otp
+      return res.status(200).json(resp)
     } catch (otpErr) {
       console.error("Error creating OTP:", otpErr.message || otpErr)
       return res.status(500).json({
