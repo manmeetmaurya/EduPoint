@@ -240,20 +240,21 @@ exports.sendotp = async (req, res) => {
 
     console.log("Generated OTP:", otp, "for email:", email)
     
-    // Create OTP document - pre-save hook in OTP model will send email
+    // Create OTP document - pre-save hook in OTP model will attempt to send email asynchronously
     try {
       const otpBody = await OTP.create({ email, otp })
-      console.log("OTP created and email sent successfully:", otpBody._id)
+      console.log("OTP created and saved:", otpBody._id, "Mail will be sent asynchronously")
       
+      // Return success - OTP is saved, mail will be sent in background
       return res.status(200).json({
         success: true,
         message: `OTP Sent Successfully`,
       })
     } catch (otpErr) {
-      console.error("Error creating OTP or sending email:", otpErr.message || otpErr)
+      console.error("Error creating OTP:", otpErr.message || otpErr)
       return res.status(500).json({
         success: false,
-        message: "Could not send verification email. Please check your email and try again.",
+        message: "Could not register email. Please try again.",
         error: otpErr.message,
       })
     }
