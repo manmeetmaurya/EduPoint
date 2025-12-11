@@ -199,15 +199,14 @@ exports.login = async (req, res) => {
 exports.sendotp = async (req, res) => {
   try {
     const { email } = req.body
+    console.log("sendotp called for email:", email)
 
     // Check if user is already present
-    // Find user with provided email
     const checkUserPresent = await User.findOne({ email })
-    // to be used in case of signup
-
+    
     // If user found with provided email
     if (checkUserPresent) {
-      // Return 401 Unauthorized status code with error message
+      console.log("User already exists:", email)
       return res.status(401).json({
         success: false,
         message: `User is Already Registered`,
@@ -232,6 +231,7 @@ exports.sendotp = async (req, res) => {
       attempts++
     }
     if (attempts >= 10) {
+      console.error("Could not generate unique OTP after 10 attempts")
       return res.status(500).json({
         success: false,
         message: "Could not generate unique OTP. Please try again.",
@@ -243,23 +243,27 @@ exports.sendotp = async (req, res) => {
     // Create OTP document - pre-save hook in OTP model will send email
     try {
       const otpBody = await OTP.create({ email, otp })
-      console.log("OTP created and email sent:", otpBody._id)
+      console.log("OTP created and email sent successfully:", otpBody._id)
+      
+      return res.status(200).json({
+        success: true,
+        message: `OTP Sent Successfully`,
+      })
     } catch (otpErr) {
-      console.error("Error creating OTP or sending email:", otpErr)
+      console.error("Error creating OTP or sending email:", otpErr.message || otpErr)
       return res.status(500).json({
         success: false,
-        message: "Could not send verification email. Please try again.",
+        message: "Could not send verification email. Please check your email and try again.",
         error: otpErr.message,
       })
     }
-
-    res.status(200).json({
-      success: true,
-      message: `OTP Sent Successfully`,
-    })
   } catch (error) {
-    console.log(error.message)
-    return res.status(500).json({ success: false, error: error.message })
+    console.error("sendotp exception:", error.message || error)
+    return res.status(500).json({ 
+      success: false, 
+      message: "Error sending OTP",
+      error: error.message 
+    })
   }
 }
 
