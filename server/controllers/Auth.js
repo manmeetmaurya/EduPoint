@@ -219,36 +219,38 @@ exports.sendotp = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     })
-    const result = await OTP.findOne({ otp: otp })
-    console.log("Result is Generate OTP Func")
-    console.log("OTP", otp)
-    console.log("Result", result)
-    while (result) {
+    // Check if OTP already exists and regenerate if needed (with limit to prevent infinite loop)
+    let result = await OTP.findOne({ otp: otp })
+    let attempts = 0
+    while (result && attempts < 10) {
       otp = otpGenerator.generate(6, {
         upperCaseAlphabets: false,
+        lowerCaseAlphabets: false,
+        specialChars: false,
+      })
+      result = await OTP.findOne({ otp: otp })
+      attempts++
+    }
+    if (attempts >= 10) {
+      return res.status(500).json({
+        success: false,
+        message: "Could not generate unique OTP. Please try again.",
       })
     }
-    const otpPayload = { email, otp }
-    const otpBody = await OTP.create(otpPayload)
-    console.log("OTP Body", otpBody)
 
-    // Send OTP via email
-    const otpTemplate = require("../mail/templates/emailVerificationTemplate")
-    let mailResult
+    console.log("Generated OTP:", otp, "for email:", email)
+    
+    // Create OTP document - pre-save hook in OTP model will send email
     try {
-      mailResult = await mailSender(
-        email,
-        "Verify your email for EduPoint",
-        otpTemplate(otp)
-      )
-      console.log("Mail result:", mailResult && mailResult.response ? mailResult.response : mailResult)
-    } catch (mailErr) {
-      console.error("Mail sending failed:", mailErr)
-    }
-
-    // If mail sending failed, return an error
-    if (!mailResult || (typeof mailResult === "string" && mailResult.toLowerCase().includes("error"))) {
-      return res.status(500).json({ success: false, message: "Could not send OTP email", error: mailResult })
+      const otpBody = await OTP.create({ email, otp })
+      console.log("OTP created and email sent:", otpBody._id)
+    } catch (otpErr) {
+      console.error("Error creating OTP or sending email:", otpErr)
+      return res.status(500).json({
+        success: false,
+        message: "Could not send verification email. Please try again.",
+        error: otpErr.message,
+      })
     }
 
     res.status(200).json({
