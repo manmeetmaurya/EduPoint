@@ -23,6 +23,7 @@ export function sendOtp(email, navigate) {
         email,
         checkUserPresent:true, // This is to be used in case of signup
       })
+      console.log("SENDOTP API RESPONSE............", response);
 
       console.log(response.data.success)
 
@@ -79,9 +80,7 @@ export function signUp(
     
     } catch (error) {
       console.log("SIGNUP API ERROR............", error)
-      const errMsg =
-        error?.response?.data?.message || error?.message || "Signup Failed"
-      toast.error(errMsg)
+      toast.error("Signup Failed")
 
       navigate("/signup")
     }
@@ -94,6 +93,8 @@ export function login(email, password, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
+     console.log("dikkkat............");
+    console.log("emial hai bhai",email, password);
     try {
       const response = await apiConnector("POST", LOGIN_API, {
         email,
@@ -115,10 +116,13 @@ export function login(email, password, navigate) {
       dispatch(setUser({ ...response.data.user, image: userImage }))
           
       localStorage.setItem("token", JSON.stringify(response.data.token))
+          console.log("dikkkat hai............");
       navigate("/dashboard/my-profile")
+    
     } catch (error) {
       console.log("LOGIN API ERROR............", error)
       toast.error("Login Failed")
+         console.log("----------problem");
     }
     dispatch(setLoading(false))
     toast.dismiss(toastId)
