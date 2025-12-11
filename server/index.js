@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
 	cors({
-		origin: "*",
+		origin: "https://edu-point-chi.vercel.app",
 		credentials: true,
 	})
 );
