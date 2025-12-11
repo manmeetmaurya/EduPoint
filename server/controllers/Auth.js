@@ -13,16 +13,6 @@ require("dotenv").config()
 
 exports.signup = async (req, res) => {
   try {
-    // Log incoming signup request (sanitize sensitive fields)
-    try {
-      const safeBody = { ...req.body }
-      delete safeBody.password
-      delete safeBody.confirmPassword
-      delete safeBody.otp
-      console.log("Signup request body:", safeBody)
-    } catch (logErr) {
-      console.error("Could not log signup body:", logErr)
-    }
     // Destructure fields from the request body
     const {
       firstName,
@@ -43,7 +33,6 @@ exports.signup = async (req, res) => {
       !confirmPassword ||
       !otp
     ) {
-      console.log("Signup validation failed: missing fields")
       return res.status(403).send({
         success: false,
         message: "All Fields are required",
@@ -51,7 +40,6 @@ exports.signup = async (req, res) => {
     }
     // Check if password and confirm password match
     if (password !== confirmPassword) {
-      console.log("Signup validation failed: password mismatch for", email)
       return res.status(400).json({
         success: false,
         message:
@@ -62,7 +50,6 @@ exports.signup = async (req, res) => {
     // Check if user already exists
     const existingUser = await User.findOne({ email })
     if (existingUser) {
-      console.log("Signup validation failed: user already exists", email)
       return res.status(400).json({
         success: false,
         message: "User already exists. Please sign in to continue.",
@@ -73,14 +60,12 @@ exports.signup = async (req, res) => {
     const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1)
     console.log(response);
     if (response.length === 0) {
-      console.log("Signup validation failed: no OTP found for", email)
       // OTP not found for the email
       return res.status(400).json({
         success: false,
         message: "The OTP is not valid",
       })
     } else if (otp !== response[0].otp) {
-      console.log("Signup validation failed: invalid OTP for", email)
       // Invalid OTP
       return res.status(400).json({
         success: false,
@@ -120,11 +105,10 @@ exports.signup = async (req, res) => {
       message: "User registered successfully",
     })
   } catch (error) {
-    console.error("Signup exception:", error && error.stack ? error.stack : error)
+    console.error(error)
     return res.status(500).json({
       success: false,
       message: "User cannot be registered. Please try again.",
-      error: error?.message,
     })
   }
 }
@@ -199,14 +183,15 @@ exports.login = async (req, res) => {
 exports.sendotp = async (req, res) => {
   try {
     const { email } = req.body
-    console.log("sendotp called for email:", email)
 
     // Check if user is already present
+    // Find user with provided email
     const checkUserPresent = await User.findOne({ email })
-    
+    // to be used in case of signup
+
     // If user found with provided email
     if (checkUserPresent) {
-      console.log("User already exists:", email)
+      // Return 401 Unauthorized status code with error message
       return res.status(401).json({
         success: false,
         message: `User is Already Registered`,
@@ -218,57 +203,45 @@ exports.sendotp = async (req, res) => {
       lowerCaseAlphabets: false,
       specialChars: false,
     })
-    // Check if OTP already exists and regenerate if needed (with limit to prevent infinite loop)
-    let result = await OTP.findOne({ otp: otp })
-    let attempts = 0
-    while (result && attempts < 10) {
+    const result = await OTP.findOne({ otp: otp })
+    console.log("Result is Generate OTP Func")
+    console.log("OTP", otp)
+    console.log("Result", result)
+    while (result) {
       otp = otpGenerator.generate(6, {
         upperCaseAlphabets: false,
-        lowerCaseAlphabets: false,
-        specialChars: false,
       })
-      result = await OTP.findOne({ otp: otp })
-      attempts++
     }
-    if (attempts >= 10) {
-      console.error("Could not generate unique OTP after 10 attempts")
-      return res.status(500).json({
-        success: false,
-        message: "Could not generate unique OTP. Please try again.",
-      })
+    const otpPayload = { email, otp }
+    const otpBody = await OTP.create(otpPayload)
+    console.log("OTP Body", otpBody)
+
+    // Send OTP via email
+    const otpTemplate = require("../mail/templates/emailVerificationTemplate")
+    let mailResult
+    try {
+      mailResult = await mailSender(
+        email,
+        "Verify your email for ShikshaMitra",
+        otpTemplate(otp)
+      )
+      console.log("Mail result:", mailResult && mailResult.response ? mailResult.response : mailResult)
+    } catch (mailErr) {
+      console.error("Mail sending failed:", mailErr)
     }
 
-    console.log("Generated OTP:", otp, "for email:", email)
-    
-    // Create OTP document - pre-save hook in OTP model will attempt to send email asynchronously
-    try {
-      const otpBody = await OTP.create({ email, otp })
-      console.log("OTP created and saved:", otpBody._id, "Mail will be sent asynchronously")
-      
-      // Return success - OTP is saved, mail will be sent in background
-      // Optionally include the OTP in the response for testing when SHOW_OTP is enabled
-      const showOtp = process.env.SHOW_OTP === "true"
-      const resp = {
-        success: true,
-        message: `OTP Sent Successfully`,
-      }
-      if (showOtp) resp.otp = otp
-      return res.status(200).json(resp)
-    } catch (otpErr) {
-      console.error("Error creating OTP:", otpErr.message || otpErr)
-      return res.status(500).json({
-        success: false,
-        message: "Could not register email. Please try again.",
-        error: otpErr.message,
-      })
+    // If mail sending failed, return an error
+    if (!mailResult || (typeof mailResult === "string" && mailResult.toLowerCase().includes("error"))) {
+      return res.status(500).json({ success: false, message: "Could not send OTP email", error: mailResult })
     }
-  } catch (error) {
-    console.error("sendotp exception:", error.message || error)
-    return res.status(500).json({ 
-      success: false, 
-      message: "Error sending OTP",
-      error: error.message 
+
+    res.status(200).json({
+      success: true,
+      message: `OTP Sent Successfully`,
     })
+  } catch (error) {
+    console.log(error.message)
+    return res.status(500).json({ success: false, error: error.message })
   }
 }
 

@@ -5,8 +5,8 @@
 // deployed remote API which may behave differently.
 let BASE_URL = process.env.REACT_APP_BASE_URL;
 if (!BASE_URL) {
-  console.warn("REACT_APP_BASE_URL is not set, defaulting to Render backend.");
-  BASE_URL = "https://edupoint-backend.onrender.com/api/v1"; // Deployed Render backend
+  console.warn("REACT_APP_BASE_URL is not set, defaulting to http://localhost:4000/api/v1 for local development.");
+  BASE_URL = "http://localhost:4000/api/v1"; // Local development default
 }
 // AUTH ENDPOINTS
 export const endpoints = {
