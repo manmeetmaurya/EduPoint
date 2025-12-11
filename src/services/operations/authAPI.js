@@ -79,7 +79,9 @@ export function signUp(
     
     } catch (error) {
       console.log("SIGNUP API ERROR............", error)
-      toast.error("Signup Failed")
+      const errMsg =
+        error?.response?.data?.message || error?.message || "Signup Failed"
+      toast.error(errMsg)
 
       navigate("/signup")
     }

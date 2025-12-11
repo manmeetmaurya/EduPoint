@@ -13,6 +13,16 @@ require("dotenv").config()
 
 exports.signup = async (req, res) => {
   try {
+    // Log incoming signup request (sanitize sensitive fields)
+    try {
+      const safeBody = { ...req.body }
+      delete safeBody.password
+      delete safeBody.confirmPassword
+      delete safeBody.otp
+      console.log("Signup request body:", safeBody)
+    } catch (logErr) {
+      console.error("Could not log signup body:", logErr)
+    }
     // Destructure fields from the request body
     const {
       firstName,
@@ -33,6 +43,7 @@ exports.signup = async (req, res) => {
       !confirmPassword ||
       !otp
     ) {
+      console.log("Signup validation failed: missing fields")
       return res.status(403).send({
         success: false,
         message: "All Fields are required",
@@ -40,6 +51,7 @@ exports.signup = async (req, res) => {
     }
     // Check if password and confirm password match
     if (password !== confirmPassword) {
+      console.log("Signup validation failed: password mismatch for", email)
       return res.status(400).json({
         success: false,
         message:
@@ -50,6 +62,7 @@ exports.signup = async (req, res) => {
     // Check if user already exists
     const existingUser = await User.findOne({ email })
     if (existingUser) {
+      console.log("Signup validation failed: user already exists", email)
       return res.status(400).json({
         success: false,
         message: "User already exists. Please sign in to continue.",
@@ -60,12 +73,14 @@ exports.signup = async (req, res) => {
     const response = await OTP.find({ email }).sort({ createdAt: -1 }).limit(1)
     console.log(response);
     if (response.length === 0) {
+      console.log("Signup validation failed: no OTP found for", email)
       // OTP not found for the email
       return res.status(400).json({
         success: false,
         message: "The OTP is not valid",
       })
     } else if (otp !== response[0].otp) {
+      console.log("Signup validation failed: invalid OTP for", email)
       // Invalid OTP
       return res.status(400).json({
         success: false,
@@ -105,10 +120,11 @@ exports.signup = async (req, res) => {
       message: "User registered successfully",
     })
   } catch (error) {
-    console.error(error)
+    console.error("Signup exception:", error && error.stack ? error.stack : error)
     return res.status(500).json({
       success: false,
       message: "User cannot be registered. Please try again.",
+      error: error?.message,
     })
   }
 }
