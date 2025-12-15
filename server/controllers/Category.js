@@ -46,13 +46,14 @@ exports.showAllCategories = async (req, res) => {
 exports.categoryPageDetails = async (req, res) => {
   try {
     const { categoryId } = req.body
+    console.log("PRINTING CATEGORY ID: ", categoryId);
 
     // Get courses for the specified category
     const selectedCategory = await Category.findById(categoryId)
       .populate({
         path: "courses",
         match: { status: "Published" },
-        populate: "ratingAndReviews",
+        populate: "instructor",
       })
       .exec()
 
@@ -68,43 +69,61 @@ exports.categoryPageDetails = async (req, res) => {
     if (selectedCategory.courses.length === 0) {
       console.log("No courses found for the selected category.")
       // Don't return error - just return empty courses array
+      return res.status(200).json({
+        success: true,
+        data: {
+          selectedCategory: selectedCategory,
+          differentCategory: { courses: [] },
+          mostSellingCourses: [],
+        },
+      })
     }
 
     // Get courses for other categories
     const categoriesExceptSelected = await Category.find({
       _id: { $ne: categoryId },
     })
-    let differentCategory = await Category.findOne(
-      categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
-        ._id
-    )
-      .populate({
-        path: "courses",
-        match: { status: "Published" },
-      })
-      .exec()
-    console.log()
+    
+    let differentCategory = { courses: [] }
+    if (categoriesExceptSelected.length > 0) {
+      differentCategory = await Category.findOne(
+        categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
+          ._id
+      )
+        .populate({
+          path: "courses",
+          match: { status: "Published" },
+          populate: "instructor",
+        })
+        .exec()
+    }
+    
+    console.log("Different COURSE", differentCategory)
+    
     // Get top-selling courses across all categories
     const allCategories = await Category.find()
       .populate({
         path: "courses",
         match: { status: "Published" },
+        populate: "instructor",
       })
       .exec()
-    const allCourses = allCategories.flatMap((category) => category.courses)
+      
+    const allCourses = allCategories.flatMap((category) => category.courses || [])
     const mostSellingCourses = allCourses
-      .sort((a, b) => b.sold - a.sold)
+      .sort((a, b) => (b.studentsEnroled?.length || 0) - (a.studentsEnroled?.length || 0))
       .slice(0, 10)
 
     res.status(200).json({
       success: true,
       data: {
         selectedCategory,
-        differentCategory,
+        differentCategory: differentCategory || { courses: [] },
         mostSellingCourses,
       },
     })
   } catch (error) {
+    console.error("Error in categoryPageDetails:", error)
     return res.status(500).json({
       success: false,
       message: "Internal server error",

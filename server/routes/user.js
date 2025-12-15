@@ -1,4 +1,4 @@
-// Import the required modules
+﻿// Import the required modules
 const express = require("express")
 const router = express.Router()
 
@@ -45,7 +45,7 @@ router.get("/test-email-sendgrid", async (req, res) => {
     
     const result = await emailService.sendEmail(
       "test@example.com",
-      "SendGrid Test Email - Shiksha Mitra",
+      "SendGrid Test Email - EduPoint",
       `<h1>✅ SendGrid is working!</h1><p>This email was sent at ${new Date().toISOString()}</p>`
     );
     

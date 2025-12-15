@@ -1,8 +1,8 @@
-🎓 ShikshaMitra Frontend
+🎓 EduPoint Frontend
 
 ![alt text](<Screenshot 2025-08-18 215257.png>)
 
-This repository contains the frontend application for the ShikshaMitra e-learning platform.
+This repository contains the frontend application for the EduPoint e-learning platform.
 It provides a responsive UI for course browsing, authentication, payments, and user dashboards.
 
 🚀 Features
@@ -53,8 +53,8 @@ frontend/
 
 Clone the repository:
 
-git clone https://github.com/your-username/shikshamitra-frontend.git
-cd shikshamitra-frontend
+git clone https://github.com/your-username/edupoint-frontend.git
+cd edupoint-frontend
 
 
 Install dependencies:
@@ -89,7 +89,7 @@ Enrolled Courses – Manage enrolled courses
 
 
 
-Here’s a glimpse of the ShikshaMitra frontend:
+Here’s a glimpse of the EduPoint frontend:
 
 🔐 Authentication Page
 
@@ -105,7 +105,7 @@ Here’s a glimpse of the ShikshaMitra frontend:
 
 👨‍💻 About Me
 
-Hi, I’m the developer of ShikshaMitra 🚀
+Hi, I’m the developer of EduPoint 🚀
 Passionate about building scalable web apps and integrating secure payment systems.
 
 🤝 Contribution

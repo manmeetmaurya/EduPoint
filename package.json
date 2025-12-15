@@ -1,6 +1,6 @@
 {
-  "name": "shiksha-mitra-client",
-  "description": "This is the client side of the ShikshaMitra App",
+  "name": "edupoint-client",
+  "description": "This is the client side of the EduPoint App",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

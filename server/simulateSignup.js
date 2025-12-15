@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Simulate Complete Signup Flow with OTP
  * Tests the entire process from OTP generation to email sending
  */
@@ -64,12 +64,12 @@ async function simulateSignupFlow() {
     // Step 4: Send OTP email
     console.log(`\n[6/6] Sending OTP email...`);
     console.log(`   To: ${testEmail}`);
-    console.log(`   Subject: Shiksha Mitra - Verify Your Email`);
+    console.log(`   Subject: EduPoint - Verify Your Email`);
 
     try {
       const emailResponse = await mailSender(
         testEmail,
-        "Shiksha Mitra - Verify Your Email",
+        "EduPoint - Verify Your Email",
         otpTemplate(otp)
       );
 

@@ -1,7 +1,7 @@
-{
-	"name": "shikshamitra-backend",
+﻿{
+	"name": "edupoint-backend",
 	"version": "1.0.0",
-	"description": "ShikshaMitra-backend",
+	"description": "EduPoint-backend",
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
@@ -9,9 +9,9 @@
 		"build": "echo \"No build step required\""
 	},
 	"keywords": [
-		"ShikshaMitra-backend"
+		"EduPoint-backend"
 	],
-	"author": "Ayush Mishra",
+	"author": "Manmeet Kishore Maurya",
 	"license": "ISC",
 	"dependencies": {
 		"bcrypt": "^5.1.0",

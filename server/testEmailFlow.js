@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Complete Email Flow Test
  * Tests the mailSender and emailService integration
  */
@@ -42,7 +42,7 @@ async function testCompleteEmailFlow() {
     try {
       const result = await mailSender(
         testEmail,
-        "Shiksha Mitra - Test Email",
+        "EduPoint - Test Email",
         htmlTemplate
       );
 

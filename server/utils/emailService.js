@@ -1,4 +1,4 @@
-const nodemailer = require("nodemailer");
+﻿const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 /**
@@ -35,7 +35,7 @@ class EmailService {
         this.provider = "sendgrid";
         console.log("✅ SendGrid API Key: Configured and initialized");
         console.log(`   Key preview: ${sendgridKey.substring(0, 10)}...${sendgridKey.substring(sendgridKey.length - 5)}`);
-        console.log(`   From Email: noreply@shikshamitra.com (must be verified in SendGrid)`);
+        console.log(`   From Email: noreply@edupoint.com (must be verified in SendGrid)`);
         console.log("   🚀 PRIMARY PROVIDER (Render-compatible)");
         console.log("================================\n");
         return;
@@ -151,7 +151,7 @@ class EmailService {
 
       // Use verified SendGrid sender email - must be verified in SendGrid dashboard
       // Use MAIL_USER which is already configured
-      const fromEmail = process.env.MAIL_USER || "noreply@shikshamitra.com";
+      const fromEmail = process.env.MAIL_USER || "noreply@edupoint.com";
       const msg = {
         to: email,
         from: fromEmail,
@@ -255,7 +255,7 @@ class EmailService {
 
       // Send email
       const info = await transporter.sendMail({
-        from: `"Shiksha Mitra" <${process.env.MAIL_USER}>`,
+        from: `"EduPoint" <${process.env.MAIL_USER}>`,
         to: email,
         subject: subject,
         html: htmlBody,

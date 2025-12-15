@@ -1,4 +1,4 @@
-import { toast } from "react-hot-toast"
+﻿import { toast } from "react-hot-toast"
 
 import rzpLogo from "../../assets/Logo/rzp_logo.png"
 import { resetCart } from "../../slices/cartSlice"
@@ -74,7 +74,7 @@ export async function BuyCourse(
       currency: orderResponse.data.data.currency,
       amount: `${orderResponse.data.data.amount}`,
       order_id: orderResponse.data.data.id,
-      name: "ShikshaMitra",
+      name: "EduPoint",
       description: "Thank you for Purchasing the Course.",
       image: rzpLogo,
       prefill: {

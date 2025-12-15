@@ -1,4 +1,4 @@
-exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
+﻿exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
   return `<!DOCTYPE html>
     <html>
     
@@ -68,7 +68,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
     <body>
         <div class="container">
             <a href="https://Shikshamitra-edtech-project.vercel.app"><img class="logo" src="https://res.cloudinary.com/dciv3db5z/image/upload/v1755509776/Screenshot_2025-08-18_142713_a13djx.png"
-                    alt="ShikshaMitra Logo"></a>
+                    alt="EduPoint Logo"></a>
             <div class="message">Course Payment Confirmation</div>
             <div class="body">
                 <p>Dear ${name},</p>
@@ -77,7 +77,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
                 <p>Your Order ID is <b>${orderId}</b></p>
             </div>
             <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-                    href="mailto:info@ShikshaMitra.com">info@ShikshaMitra.com</a>. We are here to help!</div>
+                    href="mailto:info@EduPoint.com">info@EduPoint.com</a>. We are here to help!</div>
         </div>
     </body>
     

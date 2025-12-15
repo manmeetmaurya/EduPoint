@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Complete Diagnostic Tool for OTP Email Issues
  * This will help identify exactly where the problem is
  */
@@ -116,7 +116,7 @@ async function runDiagnostics() {
     try {
       const result = await mailSender(
         testEmail,
-        "Test: Shiksha Mitra - Email System Check",
+        "Test: EduPoint - Email System Check",
         `<h1>Email System Test</h1>
          <p>If you received this, email system is working!</p>
          <p>Sent at: ${new Date().toISOString()}</p>`

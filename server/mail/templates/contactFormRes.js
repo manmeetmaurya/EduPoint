@@ -1,4 +1,4 @@
-
+﻿
 exports.contactUsEmail = (
   email,
   firstname,
@@ -75,8 +75,8 @@ exports.contactUsEmail = (
   
   <body>
       <div class="container">
-          <a href="https://ShikshaMitra-edtech-project.vercel.app"><img class="logo"
-                  src="https://res.cloudinary.com/dciv3db5z/image/upload/v1755509776/Screenshot_2025-08-18_142713_a13djx.png" alt="Shiksha Mitra Logo"></a>
+          <a href="https://EduPoint-edtech-project.vercel.app"><img class="logo"
+                  src="https://res.cloudinary.com/dciv3db5z/image/upload/v1755509776/Screenshot_2025-08-18_142713_a13djx.png" alt="EduPoint Logo"></a>
           <div class="message">Contact Form Confirmation</div>
           <div class="body">
               <p>Dear ${firstname} ${lastname},</p>
@@ -90,7 +90,7 @@ exports.contactUsEmail = (
               <p>We appreciate your interest and will get back to you shortly. </p>
           </div>
           <div class="support">If you have any further questions or need immediate assistance, please feel free to reach
-              out to us at <a href="mailto:info@ShikshaMitra.com">info@ShikshaMitra.com</a>. We are here to help!</div>
+              out to us at <a href="mailto:info@EduPoint.com">info@EduPoint.com</a>. We are here to help!</div>
       </div>
   </body>
   

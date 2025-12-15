@@ -1,4 +1,4 @@
-// Icons Import
+﻿// Icons Import
 import { FaArrowRight } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
@@ -209,7 +209,7 @@ function Home() {
               </div>
             <div className="flex flex-col items-start gap-10 lg:w-[40%]">
               <div className="text-[16px] text-richblack-700 bg-white/80 rounded-lg p-4 shadow-lg" style={{textShadow:'0 2px 8px #232526'}}> 
-                The modern Shiksha Mitra dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
+                The modern EduPoint dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
               </div>
               <CTAButton active={true} linkto={"/signup"}>
                 <div className="bg-gradient-to-r from-[#ff512f] via-[#f09819] to-[#ff512f] text-transparent bg-clip-text transition-transform duration-300 hover:scale-110">Learn More</div>

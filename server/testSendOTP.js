@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Test the complete OTP sending flow
  * This simulates what happens during signup
  */
@@ -38,11 +38,11 @@ async function testOTPFlow() {
     // 4. Send email
     const testEmail = "2022021213@mmmut.ac.in"; // Your test email
     console.log(`\n4️⃣ Sending OTP to: ${testEmail}`);
-    console.log("   Subject: Shiksha Mitra - Verify Your Email");
+    console.log("   Subject: EduPoint - Verify Your Email");
 
     const emailResponse = await mailSender(
       testEmail,
-      "Shiksha Mitra - Verify Your Email",
+      "EduPoint - Verify Your Email",
       htmlBody
     );
 

@@ -1,7 +1,7 @@
+﻿
 
 
-
-# 📘 ShikshaMitra – Online Course Platform
+# 📘 EduPoint – Online Course Platform
 
 An online course platform built with **React**, **Redux**, **Node.js/Express**, and **Razorpay** for secure payments.
 Students can browse, purchase, and enroll in courses with a smooth learning experience.

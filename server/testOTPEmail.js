@@ -1,4 +1,4 @@
-/**
+﻿/**
  * OTP Email Test Script
  * Simulates actual signup → OTP creation → Email sending
  * 
@@ -35,11 +35,11 @@ async function testOTPEmail() {
     // Step 3: Send email (same as in real signup)
     console.log("📤 Step 3: Sending email...");
     console.log(`   To: ${testEmail}`);
-    console.log(`   Subject: Shiksha Mitra - Verify Your Email\n`);
+    console.log(`   Subject: EduPoint - Verify Your Email\n`);
 
     const emailResponse = await mailSender(
       testEmail,
-      "Shiksha Mitra - Verify Your Email",
+      "EduPoint - Verify Your Email",
       emailBody
     );
 
@@ -52,7 +52,7 @@ async function testOTPEmail() {
     console.log("📬 Email Details:");
     console.log(`   To: ${testEmail}`);
     console.log(`   OTP in email: ${otp}`);
-    console.log(`   Subject: Shiksha Mitra - Verify Your Email\n`);
+    console.log(`   Subject: EduPoint - Verify Your Email\n`);
     console.log("🔍 Next steps:");
     console.log("   1. Check your email inbox at: 2022021213@gmail.com");
     console.log("   2. If not in inbox, check SPAM folder");

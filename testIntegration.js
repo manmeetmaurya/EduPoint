@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Full Integration Test
  * Tests the complete flow: OTP creation → Email sending → Database save
  * 
@@ -45,8 +45,8 @@ async function testIntegration() {
       console.log("   3. Email was sent to: " + TEST_EMAIL);
       console.log("\n📧 Check your email:");
       console.log("   1. Go to: " + TEST_EMAIL);
-      console.log("   2. Look for email from: ayushmishramay22@gmail.com");
-      console.log("   3. Subject: Shiksha Mitra - Verify Your Email");
+      console.log("   2. Look for email from: manmeetkishoremaurya@gmail.com");
+      console.log("   3. Subject: EduPoint - Verify Your Email");
       console.log("   4. You should see OTP: " + response.data.otp);
       console.log("   5. If not in inbox, check SPAM folder\n");
     } else {

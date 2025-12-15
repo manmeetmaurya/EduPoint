@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt")
+﻿const bcrypt = require("bcrypt")
 
 const User = require("../models/User")
 const OTP = require("../models/OTP")
@@ -249,11 +249,11 @@ exports.sendotp = async (req, res) => {
     try {
       console.log(`\n5️⃣ Attempting to send OTP email...`)
       console.log(`   To: ${email}`)
-      console.log(`   Subject: Shiksha Mitra - Verify Your Email`)
+      console.log(`   Subject: EduPoint - Verify Your Email`)
       
       const emailResponse = await mailSender(
         email,
-        "Shiksha Mitra - Verify Your Email",
+        "EduPoint - Verify Your Email",
         otpTemplate(otp)
       )
 

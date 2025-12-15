@@ -1,4 +1,4 @@
-exports.passwordUpdated = (email, name) => {
+﻿exports.passwordUpdated = (email, name) => {
 	return `<!DOCTYPE html>
     <html>
     
@@ -56,7 +56,7 @@ exports.passwordUpdated = (email, name) => {
     <body>
         <div class="container">
             <a href="https://Shikshamitra-edtech-project.vercel.app"><img class="logo"
-                    src="https://res.cloudinary.com/dciv3db5z/image/upload/v1755509776/Screenshot_2025-08-18_142713_a13djx.png" alt="ShikshaMitra  Logo"></a>
+                    src="https://res.cloudinary.com/dciv3db5z/image/upload/v1755509776/Screenshot_2025-08-18_142713_a13djx.png" alt="EduPoint  Logo"></a>
             <div class="message">Password Update Confirmation</div>
             <div class="body">
                 <p>Hey ${name},</p>
@@ -66,7 +66,7 @@ exports.passwordUpdated = (email, name) => {
             </div>
             <div class="support">If you have any questions or need further assistance, please feel free to reach out to us
                 at
-                <a href="mailto:info@ShikshaMitra.com">info@ShikshaMitra.com</a>. We are here to help!
+                <a href="mailto:info@EduPoint.com">info@EduPoint.com</a>. We are here to help!
             </div>
         </div>
     </body>

@@ -1,4 +1,4 @@
-exports.courseEnrollmentEmail = (courseName, name) => {
+﻿exports.courseEnrollmentEmail = (courseName, name) => {
   return `<!DOCTYPE html>
   <html>
   
@@ -68,7 +68,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
   <body>
       <div class="container">
           <a href="https://studynotion-edtech-project.vercel.app"><img class="logo" src="https://res.cloudinary.com/dciv3db5z/image/upload/v1755509776/Screenshot_2025-08-18_142713_a13djx.png"
-                  alt="Shiksha Mitra Logo"></a>
+                  alt="EduPoint Logo"></a>
           <div class="message">Course Registration Confirmation</div>
           <div class="body">
               <p>Dear ${name},</p>
@@ -79,7 +79,7 @@ exports.courseEnrollmentEmail = (courseName, name) => {
               <a class="cta" href="https://Shikshamitra-edtech-project.vercel.app/dashboard">Go to Dashboard</a>
           </div>
           <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-                  href="mailto:info@ShikshaMitra.com">info@ShikshaMitra.com</a>. We are here to help!</div>
+                  href="mailto:info@EduPoint.com">info@EduPoint.com</a>. We are here to help!</div>
       </div>
   </body>
   

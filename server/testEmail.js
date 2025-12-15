@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Email Test Script
  * Run this to test if emails are actually being sent
  * 
@@ -46,12 +46,12 @@ async function testEmail() {
     const testEmail = "2022021213@gmail.com"; // Your email
 
     const mailOptions = {
-      from: `"Shiksha Mitra" <${process.env.MAIL_USER}>`,
+      from: `"EduPoint" <${process.env.MAIL_USER}>`,
       to: testEmail,
-      subject: "Shiksha Mitra - Test Email (OTP Verification)",
+      subject: "EduPoint - Test Email (OTP Verification)",
       html: `
         <div style="font-family: Arial, sans-serif; text-align: center; background-color: #f5f5f5; padding: 20px;">
-          <h1 style="color: #333;">Shiksha Mitra</h1>
+          <h1 style="color: #333;">EduPoint</h1>
           <h2 style="color: #666;">Email Test - Your OTP</h2>
           <p style="font-size: 16px; color: #333;">
             This is a test email to verify that our email system is working correctly.
@@ -66,7 +66,7 @@ async function testEmail() {
           </p>
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
           <p style="font-size: 12px; color: #999;">
-            Shiksha Mitra - EdTech Platform
+            EduPoint - EdTech Platform
           </p>
         </div>
       `,
