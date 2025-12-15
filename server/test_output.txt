@@ -192,8 +192,7 @@ HTML Length: 2010 chars
 [2025-12-14 19:53:29] DEBUG [xdoloERbWxA] =09
 [2025-12-14 19:53:29] DEBUG [xdoloERbWxA] 	<body>
 [2025-12-14 19:53:29] DEBUG [xdoloERbWxA] 		<div class=3D"container">
-[2025-12-14 19:53:29] DEBUG [xdoloERbWxA] 			<a href=3D"https://Shikshamitra-edtech-proje=
-[2025-12-14 19:53:29] DEBUG [xdoloERbWxA] ct.vercel.app"><img class=3D"logo"
+[2025-12-14 19:53:29] DEBUG [xdoloERbWxA] 			<a href=3D"https://https://edu-point-ten.vercel.app"><img class=3D"logo"
 [2025-12-14 19:53:29] DEBUG [xdoloERbWxA] 					src=3D"https://res.cloudinary.=
 [2025-12-14 19:53:29] DEBUG [xdoloERbWxA] com/dciv3db5z/image/upload/v1755509776/Screenshot_2025-08-18_142713_a13djx.=
 [2025-12-14 19:53:29] DEBUG [xdoloERbWxA] png" alt=3D"EduPoint  Logo"></a>

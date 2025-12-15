@@ -76,7 +76,7 @@
                   are excited to have you as a participant!</p>
               <p>Please log in to your learning dashboard to access the course materials and start your learning journey.
               </p>
-              <a class="cta" href="https://Shikshamitra-edtech-project.vercel.app/dashboard">Go to Dashboard</a>
+              <a class="cta" href="https://edu-point-ten.vercel.app/dashboard">Go to Dashboard</a>
           </div>
           <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
                   href="mailto:info@EduPoint.com">info@EduPoint.com</a>. We are here to help!</div>
