@@ -15,7 +15,7 @@ import HighlightText from "../components/core/HomePage/HighlightText"
 const About = () => {
   return (
     <div>
-  <section className="bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526]">
+  <section className="bg-gradient-to-br from-richblack-900 via-richblack-700 to-richblack-800">
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
             Driving Innovation in Online Education for a
@@ -47,7 +47,7 @@ const About = () => {
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-richblack-500">
           <div className="flex flex-col items-center gap-10 lg:flex-row justify-between">
             <div className="my-24 flex lg:w-[50%] flex-col gap-10">
-              <h1 className="bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
+              <h1 className="bg-gradient-to-br from-blue-200 via-pink-200 to-yellow-200 bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
                 Our Founding Story
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
@@ -72,13 +72,13 @@ const About = () => {
               <img
                 src={FoundingStory}
                 alt=""
-                className="shadow-[0_0_20px_0] shadow-[#FC6767] h-[300px] rounded-sm"
+                className="shadow-[0_0_20px_0] shadow-pink-200 h-[300px] rounded-sm"
               />
             </div>
           </div>
           <div className="flex flex-col items-center lg:gap-10 lg:flex-row justify-between">
             <div className="my-24 flex lg:w-[40%] flex-col gap-10">
-              <h1 className="bg-gradient-to-b from-[#FF512F] to-[#F09819] bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
+              <h1 className="bg-gradient-to-b from-pink-200 to-yellow-200 bg-clip-text text-4xl font-semibold text-transparent lg:w-[70%] ">
                 Our Vision
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">
@@ -91,7 +91,7 @@ const About = () => {
               </p>
             </div>
             <div className="my-24 flex lg:w-[40%] flex-col gap-10">
-              <h1 className="bg-gradient-to-b from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text text-4xl font-semibold lg:w-[70%] ">
+              <h1 className="bg-gradient-to-b from-blue-200 via-caribbeangreen-300 to-caribbeangreen-200 text-transparent bg-clip-text text-4xl font-semibold lg:w-[70%] ">
               Our Mission
               </h1>
               <p className="text-base font-medium text-richblack-300 lg:w-[95%]">

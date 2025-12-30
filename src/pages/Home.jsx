@@ -22,23 +22,23 @@ import { TypeAnimation } from "react-type-animation"
 
 function Home() {
   return (
-  <div className="bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] min-h-screen">
+  <div className="bg-gradient-to-br from-richblack-900 via-richblack-800 to-richblack-900 min-h-screen">
       {/* Hero Section */}
       <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white py-10">
         {/* 3D floating cubes background */}
         <div className="absolute inset-0 -z-20 pointer-events-none">
           <div className="w-full h-full flex flex-wrap justify-center items-center opacity-30 animate-pulse">
             {[...Array(8)].map((_,i) => (
-              <div key={i} className={`w-24 h-24 m-6 rounded-2xl bg-gradient-to-br from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] shadow-2xl shadow-[#1FA2FF]/40 transform-gpu rotate-${i*10} scale-110 animate-float${i%2===0?"":"-reverse"}`}></div>
+              <div key={i} className={`w-24 h-24 m-6 rounded-2xl bg-gradient-to-br from-blue-200 via-caribbeangreen-300 to-blue-100 shadow-2xl shadow-blue-200/40 transform-gpu rotate-${i*10} scale-110 animate-float${i%2===0?"":"-reverse"}`}></div>
             ))}
           </div>
         </div>
         {/* Animated Tech Background */}
-  <div className="absolute inset-0 -z-10 animate-pulse bg-gradient-to-tr from-[#1FA2FF]/30 via-[#12D8FA]/30 to-[#A6FFCB]/30 blur-2xl opacity-80" />
+  <div className="absolute inset-0 -z-10 animate-pulse bg-gradient-to-tr from-blue-200/30 via-caribbeangreen-300/30 to-blue-100/30 blur-2xl opacity-80" />
         {/* Become a Instructor Button */}
         <Link to={"/signup"}>
-          <div className="group mx-auto mt-16 w-fit rounded-full bg-gradient-to-r from-[#ff512f] to-[#dd2476] p-1 font-bold text-white shadow-lg transition-all duration-200 hover:scale-110 hover:shadow-2xl hover:brightness-110">
-            <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-[#232526] group-hover:scale-105">
+          <div className="group mx-auto mt-16 w-fit rounded-full bg-gradient-to-r from-blue-200 to-caribbeangreen-300 p-1 font-bold text-white shadow-lg transition-all duration-200 hover:scale-110 hover:shadow-2xl hover:brightness-110">
+            <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-800 group-hover:scale-105">
               <p>Become an Instructor</p>
               <FaArrowRight />
             </div>
@@ -48,7 +48,7 @@ function Home() {
         {/* Heading */}
   <div className="text-center text-5xl font-extrabold mt-8">
           <TypeAnimation
-            className="bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text"
+            className="bg-gradient-to-r from-blue-200 via-blue-100 to-caribbeangreen-200 text-transparent bg-clip-text"
             repeat={Infinity}
             sequence={['UNLOCK THE NEW HORIZON TODAY WITH', 2000, ' ']} 
             omitDeletionAnimation={true}
@@ -56,59 +56,59 @@ function Home() {
           />
           <span className="relative z-10">
             <HighlightText text={" Development Skills"} />
-            <span className="block absolute left-1/2 -translate-x-1/2 bottom-[-8px] w-[80%] h-2 bg-gradient-to-r from-[#1FA2FF]/60 via-[#12D8FA]/40 to-[#A6FFCB]/0 blur-lg opacity-80 rounded-full" />
+            <span className="block absolute left-1/2 -translate-x-1/2 bottom-[-8px] w-[80%] h-2 bg-gradient-to-r from-blue-200/60 via-caribbeangreen-300/40 to-caribbeangreen-200/0 blur-lg opacity-80 rounded-full" />
           </span>
         </div>
 
         {/* Sub Heading */}
         <div className="-mt-3 w-[90%] text-center text-xl font-bold text-richblack-200 relative">
-          <span className="bg-gradient-to-r from-[#ff512f] via-[#f09819] to-[#ff512f] text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 text-transparent bg-clip-text">
             With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors.
           </span>
-          <span className="block absolute left-1/2 -translate-x-1/2 bottom-[-8px] w-[60%] h-2 bg-gradient-to-r from-[#ff512f]/60 via-[#f09819]/40 to-[#ff512f]/0 blur-lg opacity-80 rounded-full" />
+          <span className="block absolute left-1/2 -translate-x-1/2 bottom-[-8px] w-[60%] h-2 bg-gradient-to-r from-yellow-400/60 via-yellow-300/40 to-yellow-400/0 blur-lg opacity-80 rounded-full" />
         </div>
 
         {/* CTA Buttons */}
         <div className="mt-8 flex flex-row gap-7">
           <CTAButton active={true} linkto={"/signup"}>
-            <span className="bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text transition-transform duration-300 group-hover:scale-110">Learn More</span>
+            <span className="text-white font-bold transition-transform duration-300 group-hover:scale-110">Learn More</span>
           </CTAButton>
           <CTAButton active={false} linkto={"/login"}>
-            <span className="bg-gradient-to-r from-[#ff512f] via-[#f09819] to-[#ff512f] text-transparent bg-clip-text transition-transform duration-300 group-hover:scale-110">Book a Demo</span>
+            <span className="text-white font-bold transition-transform duration-300 group-hover:scale-110">Book a Demo</span>
           </CTAButton>
         </div>
 
         {/* Tech Video Banner - Now 3 videos side by side */}
-        <div className="mx-3 my-7 w-full flex flex-row gap-4 rounded-2xl overflow-hidden shadow-2xl border-4 border-[#1FA2FF]/40 animate-fade-in">
+        <div className="mx-3 my-7 w-full flex flex-row gap-4 rounded-2xl overflow-hidden shadow-2xl border-4 border-blue-200/40 animate-fade-in">
           <div className="w-1/3 flex-shrink-0 flex-grow-0">
             <video
-              className="w-full h-[320px] object-cover drop-shadow-[0_8px_32px_rgba(31,162,255,0.4)] rounded-xl transition-transform duration-500 hover:scale-105"
+              className="w-full h-[320px] object-cover drop-shadow-[0_8px_32px_rgba(56,189,248,0.4)] rounded-xl transition-transform duration-500 hover:scale-105"
               muted
               loop
               autoPlay
-              style={{filter:'drop-shadow(0 8px 32px #1FA2FF88)'}}
+              style={{filter:'drop-shadow(0 8px 32px rgba(56,189,248,0.5))'}}
             >
               <source src={Banner} type="video/mp4" />
             </video>
           </div>
           <div className="w-1/3 flex-shrink-0 flex-grow-0">
             <video
-              className="w-full h-[320px] object-cover drop-shadow-[0_8px_32px_rgba(31,162,255,0.4)] rounded-xl transition-transform duration-500 hover:scale-105"
+              className="w-full h-[320px] object-cover drop-shadow-[0_8px_32px_rgba(56,189,248,0.4)] rounded-xl transition-transform duration-500 hover:scale-105"
               muted
               loop
               autoPlay
-              style={{filter:'drop-shadow(0 8px 32px #1FA2FF88)'}}
+              style={{filter:'drop-shadow(0 8px 32px rgba(56,189,248,0.5))'}}
             >
               <source src={Vid1} type="video/mp4" />
             </video>
           </div>
           <div className="w-1/3 flex-shrink-0 flex-grow-0">
             <video
-              className="w-full h-[320px] object-cover drop-shadow-[0_8px_32px_rgba(31,162,255,0.4)] rounded-xl transition-transform duration-500 hover:scale-105"
+              className="w-full h-[320px] object-cover drop-shadow-[0_8px_32px_rgba(56,189,248,0.4)] rounded-xl transition-transform duration-500 hover:scale-105"
               muted
               loop
               autoPlay
-              style={{filter:'drop-shadow(0 8px 32px #1FA2FF88)'}}
+              style={{filter:'drop-shadow(0 8px 32px rgba(56,189,248,0.5))'}}
             >
               <source src={Vid2} type="video/mp4" />
             </video>
@@ -180,9 +180,9 @@ function Home() {
       </div>
 
       {/* Section 2: Explore & Timeline */}
-  <div className="bg-gradient-to-br from-[#232526] via-[#1FA2FF]/10 to-[#A6FFCB]/10 text-richblack-700 py-16">
+  <div className="bg-gradient-to-br from-richblack-800 via-blue-200/10 to-caribbeangreen-300/10 text-richblack-700 py-16">
         <div className="homepage_bg h-[320px] relative flex items-center justify-center">
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#1FA2FF]/20 via-[#12D8FA]/20 to-[#A6FFCB]/20 blur-2xl opacity-60 -z-10 animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-200/20 via-caribbeangreen-300/20 to-caribbeangreen-200/20 blur-2xl opacity-60 -z-10 animate-pulse" />
           {/* Explore Full Catagory Section */}
           <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
             <div className="lg:h-[150px]"></div>
@@ -203,16 +203,16 @@ function Home() {
         <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 ">
           {/* Job that is in Demand - Section 1 */}
           <div className="mb-10 mt-[-100px] flex flex-col justify-between gap-7 lg:mt-20 lg:flex-row lg:gap-0">
-            <div className="text-4xl font-semibold lg:w-[45%] bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text drop-shadow-[0_4px_16px_rgba(31,162,255,0.5)]" style={{textShadow:'0 4px 16px #1FA2FF'}}>
+            <div className="text-4xl font-semibold lg:w-[45%] bg-gradient-to-r from-blue-200 via-caribbeangreen-300 to-caribbeangreen-200 text-transparent bg-clip-text drop-shadow-[0_4px_16px_rgba(56,189,248,0.5)]" style={{textShadow:'0 4px 16px rgba(56,189,248,0.5)'}}>
                 Get the skills you need for a <HighlightText text={"job that is in demand."} />
-                <span className="block w-[70%] h-2 bg-gradient-to-r from-[#1FA2FF]/60 via-[#12D8FA]/40 to-[#A6FFCB]/0 blur-lg opacity-80 rounded-full mt-2 mx-auto" />
+                <span className="block w-[70%] h-2 bg-gradient-to-r from-blue-200/60 via-caribbeangreen-300/40 to-caribbeangreen-200/0 blur-lg opacity-80 rounded-full mt-2 mx-auto" />
               </div>
             <div className="flex flex-col items-start gap-10 lg:w-[40%]">
               <div className="text-[16px] text-richblack-700 bg-white/80 rounded-lg p-4 shadow-lg" style={{textShadow:'0 2px 8px #232526'}}> 
                 The modern EduPoint dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
               </div>
               <CTAButton active={true} linkto={"/signup"}>
-                <div className="bg-gradient-to-r from-[#ff512f] via-[#f09819] to-[#ff512f] text-transparent bg-clip-text transition-transform duration-300 hover:scale-110">Learn More</div>
+                <div className="text-white font-bold transition-transform duration-300 group-hover:scale-110">Learn More</div>
               </CTAButton>
             </div>
           </div>
@@ -226,12 +226,12 @@ function Home() {
       </div>
 
       {/* Section 3: Instructors & Reviews */}
-      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-gradient-to-br from-[#232526] via-[#1FA2FF]/10 to-[#A6FFCB]/10 text-white rounded-3xl shadow-2xl py-12">
+      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-gradient-to-br from-richblack-800 via-blue-200/10 to-caribbeangreen-300/10 text-white rounded-3xl shadow-2xl py-12">
         {/* Become a instructor section */}
         <InstructorSection />
 
         {/* Reviews from Other Learners */}
-        <h1 className="text-center text-4xl font-extrabold mt-8 bg-gradient-to-r from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text drop-shadow-lg">
+        <h1 className="text-center text-4xl font-extrabold mt-8 bg-gradient-to-r from-blue-200 via-caribbeangreen-300 to-caribbeangreen-200 text-transparent bg-clip-text drop-shadow-lg">
           Reviews from other learners
         </h1>
         <ReviewSlider />

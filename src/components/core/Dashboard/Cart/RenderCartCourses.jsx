@@ -37,7 +37,7 @@ export default function RenderCartCourses() {
                   value={course?.ratingAndReviews?.length}
                   size={20}
                   edit={false}
-                  activeColor="#ffd700"
+                  activeColor="#EAB308"
                   emptyIcon={<FaStar />}
                   fullIcon={<FaStar />}
                 />

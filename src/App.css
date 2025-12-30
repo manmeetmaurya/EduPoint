@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-400: #38BDF8;
+  --primary-300: #7DD3FC;
+  --accent: #22C55E;
+  --highlight: #EAB308;
+  --muted: #94A3B8;
+  --bg-dark: #0F172A;
+  --surface: #1E293B;
+  --card-bg: #1E293B;
+  --text-primary: #E5E7EB;
+  --text-muted: #94A3B8;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -11,7 +24,7 @@ body {
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: #afb2bf;
+  scrollbar-color: var(--muted);
 }
 
 /* Chrome, Edge, and Safari */
@@ -20,11 +33,11 @@ body {
 }
 
 *::-webkit-scrollbar-track {
-  background: #000814;
+  background: var(--bg-dark);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #afb2bf;
+  background-color: var(--muted);
   border-radius: 10px;
   visibility: hidden;
 }
@@ -48,7 +61,7 @@ details > summary::-webkit-details-marker {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 9px solid #f1f2ff;
+  border: 9px solid var(--surface);
   animation: spinner-bulqg1 0.8s infinite linear alternate,
     spinner-oaa3wk 1.6s infinite linear;
 }
@@ -59,12 +72,7 @@ details > summary::-webkit-details-marker {
   border-radius: 100%;
   left: calc(50% - 372.95px / 2 - 76.53px);
   top: calc(50% - 257.05px / 2 - 47.47px);
-  background: linear-gradient(
-    123.77deg,
-    #8a2be2 -6.46%,
-    #ffa500 59.04%,
-    #f8f8ff 124.53%
-  );
+  background: linear-gradient(123.77deg, var(--primary-300) -6%, var(--accent) 59%, var(--surface) 125%);
   opacity: 0.2;
   filter: blur(34px);
   transform: matrix(1, 0, -0.03, 1, 0, 0);
@@ -76,12 +84,7 @@ details > summary::-webkit-details-marker {
   left: calc(50% - 372.95px / 2 - 76.53px);
   top: calc(50% - 257.05px / 2 - 47.47px);
   border-radius: 100%;
-  background: linear-gradient(
-    118.19deg,
-    #1fa2ff -3.62%,
-    #12d8fa 50.44%,
-    #a6ffcb 104.51%
-  );
+  background: linear-gradient(118.19deg, var(--primary-400) -3%, var(--accent) 50%, rgba(166,255,203,1) 104%);
   opacity: 0.2;
   filter: blur(34px);
   transform: matrix(1, 0, -0.03, 1, 0, 0);
@@ -216,18 +219,18 @@ details > summary::-webkit-details-marker {
 
 /* For conditional coloring of icons in dashboard sidebar */
 .active-icon {
-  fill: #ffd60a !important;
-  color: #ffd60a !important;
+  fill: var(--highlight) !important;
+  color: var(--highlight) !important;
 }
 
 .inactive-icon {
-  fill: #838894;
-  color: #838894;
+  fill: var(--muted);
+  color: var(--muted);
 }
 
 /* Buttons */
 .yellowButton {
-  @apply cursor-pointer rounded-md bg-pink-300 px-[20px] py-[8px] font-semibold text-richblack-900;
+  @apply cursor-pointer rounded-md bg-blue-300 px-[20px] py-[8px] font-semibold text-richblack-900;
 }
 
 /* Swiper CSS Starts */
@@ -276,12 +279,7 @@ details > summary::-webkit-details-marker {
       height: 100%;
       top: 0;
       left: 0;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        #00f0ff,
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
       z-index: 1;
       border-radius: 12px;
       animation: border-run 2s linear infinite;

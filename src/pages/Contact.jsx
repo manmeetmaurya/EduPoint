@@ -7,7 +7,7 @@ import ContactForm from "../components/core/ContactUsPage/ContactForm"
 
 const Contact = () => {
   return (
-    <div className="bg-gradient-to-br from-[#0f2027] via-[#2c5364] to-[#232526] min-h-screen">
+    <div className="bg-gradient-to-br from-richblack-900 via-richblack-700 to-richblack-800 min-h-screen">
       <div className="mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white lg:flex-row">
         {/* Contact Details */}
         <div className="lg:w-[40%]">

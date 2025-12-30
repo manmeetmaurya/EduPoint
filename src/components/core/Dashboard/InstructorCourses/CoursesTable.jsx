@@ -144,7 +144,7 @@ export default function CoursesTable({ courses, setCourses }) {
                       })
                     }}
                     title="Delete"
-                    className="px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
+                    className="px-1 transition-all duration-200 hover:scale-110 hover:text-pink-400"
                   >
                     <RiDeleteBin6Line size={20} />
                   </button>
